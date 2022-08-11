@@ -28,12 +28,12 @@ class TicketsController extends Controller
         
         $date = Carbon::parse($request->date);
 
-        $pass = new PassGenerator();      
+        $pass = new PassGenerator();
 
         $pass_definition = [
-        "description"       => "description",
+        "description"       => "Ein Ticket",
         "formatVersion"     => 1,
-        "organizationName"  => "organization",
+        "organizationName"  => config('passgenerator.organization_name'),
         "passTypeIdentifier"=> config('passgenerator.type_identifier'),
         "serialNumber"      => Str::uuid(),
         "teamIdentifier"    => config('passgenerator.team_id'),
