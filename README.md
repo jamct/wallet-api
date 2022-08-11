@@ -17,3 +17,25 @@ Dann können Sie die Zusammenstellung starten:
 ```
 docker compose up
 ```
+
+## Pass abrufen
+
+Ist der Container hochgefahren, können Sie mit einem HTTP-Client per POST ein Ticket bestellen. Das geht zum Beispiel einfach mit Curl auf der Kommandozeile:
+
+```
+curl --location --request POST 'localhost:8080/api/tickets/event' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "eventName": "Beispielkonzert",
+    "date": "2022-08-01 20:00:00",
+    "qrCode": "1234PeterMueller",
+    "owner": "Peter Müller"
+}' \
+--output pass.pkpass
+```
+
+Alle Felder aus dem Curl-Beispiel sind Pflichtfelder und werden vom API validiert.
+
+## Verstehen
+
+Die gesamte Magie dieses kleinen Beispiels liegt im [TicketsController](https://github.com/jamct/wallet-api/blob/main/src/app/Http/Controllers/TicketsController.php).
