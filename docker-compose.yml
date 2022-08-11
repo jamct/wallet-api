@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8000"
+    volumes:
+     - ./certs/:/opt/certs
+     - ./src/:/code
+     - ./images/:/code/resources/assets/wallet/
+    environment:
+     - PASS_TYPE_IDENTIFIER=${PASS_TYPE_IDENTIFIER}
+     - PASS_TEAM_ID=${PASS_TEAM_ID}

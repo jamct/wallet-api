@@ -1,0 +1,4 @@
+src/vendor
+certs/*
+.env
+.DS_Store
