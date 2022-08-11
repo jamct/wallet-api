@@ -1,4 +1,7 @@
 src/vendor
-certs/*
+*.pem
+*.key
+*.cer
+*.p12
 .env
 .DS_Store
