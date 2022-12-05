@@ -9,6 +9,7 @@ services:
     volumes:
      - ./certs/:/opt/certs
      - ./src/:/code
+     - /code/vendor
      - ./images/:/code/resources/assets/wallet/
     environment:
      - PASS_TYPE_IDENTIFIER=${PASS_TYPE_IDENTIFIER}
